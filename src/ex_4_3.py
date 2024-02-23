@@ -16,10 +16,12 @@ FILENAME = get_data_file_path("messages.log")
 
 
 def time_between_shutdowns(logfile):
-    """
-    Your docstring here.  Replace the pass keyword below with your implementation.
-    """
-    pass
+    total_events = get_shutdown_events(logfile)
+    shut_events1 = total_events[0]
+    shut_events2 = total_events[-1]
+    shut_events1_date_a= logstamp_to_datetime(shut_events1.split()[1])
+    shut_events2_date_b = logstamp_to_datetime(shut_events2.split()[1])
+    return shut_events2_date_b-shut_events1_date_a
 
 
 # >>>> The code below will call your function and print the results
